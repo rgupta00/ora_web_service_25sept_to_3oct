@@ -1,0 +1,1203 @@
+
+Workshop web service with Spring boot
+---------------------------------------
+Agenda:
+--------
+	Session 1:
+	----------
+        ◦ Quick recap of Spring framework with Spring Boot
+        ◦ Spring Boot – A Closer Look
+		  Spring Boot Hello world
+        ◦ Spring Boot – Data Persistence with Spring Data JPA
+            ▪ Quick introduction to ORM with JPA
+            ▪ Benefits of using Spring with JPA
+            ▪ JPA configuration in Spring
+
+
+    • Session 2
+	-----------
+        ◦ RESful Application with Spring Boot
+            ▪ An introduction to the REST architectural style
+            ▪ Controlling HTTP response codes with @ResponseStatus
+            ▪ Implementing REST with Spring MVC, @RequestMapping, @RequestBody and @ResponseBody
+            ▪ Spring MVC’s HttpMessageConverters and automatic content negotiation
+            ▪ Exception handling with Spring Boot REST
+            ▪ Open API documentation with Spring Boot
+            ▪ Validation with Spring boot
+			
+    • Session 3
+        ◦ Spring boot Monotring and Logging, Microservice with Spring boot
+            ▪ Actuators, Metrics and Health Indicators, JMX
+            ▪ Exposing Spring Boot Actuator endpoints
+            ▪ Custom Metrics
+            ▪ Health Indicators
+            ▪ Creating custom Health Indicators
+            ▪ External monitoring systems
+            ▪ Spring boot Logging and error Handling
+            ▪ Customizing logging, using different loggers
+            ▪ Spring Profiles
+            ▪ Spring Boot microservice architecture
+            ▪ Monolith vs Microservice architecture
+
+    • Session 4
+        ◦ Securing REST Application with Spring Security
+            ▪ Which problems do Spring Security solve?
+            ▪ Spring Security
+            ▪ Configuring authentication
+            ▪ Implementing authorization by intercepting URLs
+            ▪ Authorization at the Java method level
+            ▪ Understanding the Spring Security filter chain
+            ▪ Spring security testing
+        ◦ JWT Securing
+            ▪ Basic Auth vs JWT,why to use JWT for microservice based application
+            ▪ OncePerRequestFilter
+            ▪ JWT application
+            ▪ spring boot JWT authorization	
+			
+	Session 5
+    • Introduction to Distributed computing in Java
+    • Web Services Introduction
+    • SOAP vs REST
+    • Web Services Overview
+    • SOA and Web Services
+    • What is XML?
+    • What is XSD?
+    • XML Schema Definition
+    • Namespaces
+    • XML Schema Hands On Usecase
+    • SOAP, WSDL Binding Styles
+    • JAXB Introduction
+    • JAXB tools and plugins
+    • Approaches for WS Development
+        ◦ Bottom-up approach
+       ◦ Top-down approach
+    • Creating hello world SOAP ws service, wsimport
+    • JAX-WS annotations
+    • Handling faults with SOAP web service
+    • JAXB basics
+
+
+Session 6:
+    • Apache CXF Overview
+        ◦ CXF and Spring Boot
+        ◦ Create the SOAP project
+        ◦ Create the endpoint
+        ◦ Test using SoapUI
+        ◦ Configure the Interceptors
+        ◦ Provide the Interceptor Properties
+
+    • Exchanging files using MTOM
+        ◦ Create the MTOM Project
+    • Create the FileWs Interface
+    • Create the FileWsImpl
+    • Implement the download method
+    • Publish the endpoint
+    • JAX-WS Handlers
+    • Test using SoapUI
+	
+			
+fundamentals:
+-------------
+	J2EE (group of specification for creating dynamic and dist web application)
+	1997
+		servlet jsp ejb jms
+		
+	ejb: enterpirse java beans--> distibuted logic
+	
+	u----> me --------------- friend
+			db					db
+	impl is quite difficult
+	
+Rod Johnson (2004)
+-----------------
+	Spring framework : simplication of J2EE
+	to make ur life easy
+	
+	but happen: spring become so popular and it have rooted out ejb from the market
+	
+Spring framework:
+------------------
+	Depdendency Injection DI 
+	Aspect Oriented Programming AOP
+	SpringJdbc, Spring Hib etc
+	Spring mvc
+	Spring Sec
+	Spring Batch processing
+	......
+	if u are making a project by using spring u have to write lots of xml configration/ java config
+	
+	Bean: Object whose life cycle can be managed by spring framework
+	
+	Bean= BUsiness bean + infra bean
+	In spring u have to code both of them
+	
+Spring Boot:
+-----------
+	A Wapper over spring framework
+	it make ur life very easy
+	It is rapid app dev frameork--> Openioned approach*
+	
+	SB= Spring - Infra bean + Embedded tomcat + actuator + spring data + it also spport ms dev
+	
+	=> Auto-Configuration 
+
+	=> Dependency Management
+
+	=> Externalized Configuration
+		bean can be configured through application.properties file 
+		without touching java or xml config
+
+	=> Production support
+		We get health checking, application and jvm metrics, 
+		jmx via http and a few more things for free
+
+	=> Runnable Jars
+		 We can package your application as a runnable jar with embedded tomcat
+		 included so it presents a self-contained deployment unit
+
+	=> Microservice
+
+Diff bw spring and spring boot
+----------------------------
+https://arnaud-nauwynck.github.io/docs/Intro-SpringBoot.pdf
+
+Should i learn spring before spring boot
+it depends: if ur a techi --> should learn
+if mgt --> for them not req
+
+
+How to get started with spring boot:
+--------------------------------------
+option 1:
+https://start.spring.io/
+
+option 2: STS 4
+-----------------
+JDK 17 + maven + sts + postman + H2 database + docker/rancher
+
+
+Day 1 Session 1: 
+-------------
+=> Understand Depdendency Injection
+=> bean wiring annoation and java configuraton
+=> Spring boot aop
+=> spring mvc basics
+=> REST basics
+
+
+
+Understand Depdendency Injection
+---------------------------------
+
+web ----------------service --------------repo (dao) ------------db
+
+creating bank app from start:
+
+create dao layer:
+------------------
+//DTO
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Account {
+    private int id;
+    private String name;
+    private BigDecimal balance;
+
+}
+
+create the dao layer:
+----------------------
+
+
+public interface AccountRepo {
+    public List<Account>getAll();
+	public void update(Account account);
+	public Account getById(int id);
+}
+
+implementaiton:
+------------------
+
+public class AccountRepoMapImpl implements AccountRepo{
+	
+	public Map<Integer, Account> accountMap=new HashMap<>();
+
+	public AccountRepoMapImpl() {
+        accountMap.put(1, new Account(1,"raj",BigDecimal.valueOf(6000.00)));
+        accountMap.put(2, new Account(2,"ekta",BigDecimal.valueOf(6000.00)));
+	}
+	
+	@Override
+	public List<Account> getAll() {
+		return new ArrayList<>(accountMap.values());
+	}
+
+	@Override
+	public void update(Account account) {
+		accountMap.put(account.getId(), account);
+	}
+
+	@Override
+	public Account getById(int id) {
+		return accountMap.get(id);
+	}
+
+}
+
+
+add ex to exception package:
+-----------------------------
+public class BankAccountNotFoundException extends RuntimeException{
+    public BankAccountNotFoundException(String message) {
+        super(message);
+    }
+}
+
+
+now we will write service layer:
+--------------------------------
+
+public interface AccountService {
+   	public List<Account> getAllAccounts();
+	public void transfer(int fromAccId, int toAccId, BigDecimal amount);
+	public void withdraw(int accId, BigDecimal amount);
+	public void deposit(int accId, BigDecimal amount);
+	public Account getById(int accId);
+}
+
+public class AccountServiceImpl implements AccountService{
+
+	private AccountRepo accountRepo;
+	
+	public AccountServiceImpl() {
+		accountRepo=new AccountRepoMapImpl(); //problem with di
+	}
+	@Override
+	public List<Account> getAllAccounts() {
+		return accountRepo.getAll();
+	}
+
+	@Override
+	public void transfer(int fromAccId, int toAccId, BigDecimal amount) {
+		Account fromAcc=getById(fromAccId);
+		Account toAcc=getById(toAccId);
+		fromAcc.setBalance(fromAcc.getBalance().subtract(amount));
+		toAcc.setBalance(toAcc.getBalance().add(amount));
+		
+		accountRepo.update(fromAcc);
+		
+		accountRepo.update(toAcc);
+		
+	}
+
+	@Override
+	public void withdraw(int accId, BigDecimal amount) {
+		Account acc=getById(accId);
+		acc.setBalance(acc.getBalance().subtract(amount));
+		accountRepo.update(acc);
+	}
+
+	@Override
+	public void deposit(int accId, BigDecimal amount) {
+		Account acc=getById(accId);
+		acc.setBalance(acc.getBalance().add(amount));
+		accountRepo.update(acc);
+	}
+
+	@Override
+	public Account getById(int accId) {
+		Account account=accountRepo.getById(accId);
+		if(account==null)
+			throw new BankAccountNotFoundException("account with id "+ accId +" is not found");
+		return account;
+	}
+
+}
+
+
+Now let see how u can  use DI?
+-------------------------------
+refer : My YT 
+
+	XML (Lagacy)
+	Annotation + Java config
+	bean wiring /DI
+	
+	spring
+	
+	take the object of dao layer and inject to service layer
+	how he come to know.. to need to tell spring
+	bean wiring
+	
+		@Component
+		|
+	----------------------------------
+	|				 |				|
+	@RestController @Service   @Repository
+	
+	@Controller
+
+
+Need of AOP:
+------------
+ spring use aop at lots of places
+ tx
+ sec
+ exception handling
+ 
+
+How spring boot works?
+-----------------------
+sb have a main class --> 
+
+@SpringBootApplication = @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan
+
+ @EnableAutoConfiguration? RAD and it do openiated approach*
+ 
+
+
+
+
+
+
+Day 1 Session 1: 
+-------------
+=> Spring boot hello world
+=> Understand Depdendency Injection
+=> bean wiring annoation and java configuraton
+=> Spring boot aop
+=> spring mvc basics
+=> REST basics
+=> Spring boot REST application
+
+
+
+
+Spring Boot Hello world:
+---------------------------
+
+@RestController
+public class HelloController {
+    //@PathVariable vs @RequestParam
+    //   /                  ? &
+    //http://localhost:8090/hello/ravi/noida
+    @GetMapping(path = "hello/{name}/{address}")
+    public String hello(@PathVariable(name = "name") String uname,
+                        @PathVariable String address){
+        return "hello champs! "+ uname+" address is "+ address;
+    }
+
+    //http://localhost:8090/hello2?name=raiv&address=noida
+    @GetMapping(path = "hello2")
+    public String hello2(@RequestParam(name = "name") String uname,
+                        @RequestParam String address){
+        return "hello champs! "+ uname+" address is "+ address;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+	
+
+Day 3: spring boot development:
+---------------------------------
+
+Step 1: create spring boot application
+
+Quick recap
+
+Hello world :
+--------------
+
+
+
+
+
+
+
+
+Controller:
+-----------------
+
+
+@RestController
+public class AccountCrudController {
+
+    private AccountService accountService;
+
+    @Autowired
+    public AccountCrudController(AccountService accountService) {
+        this.accountService = accountService;
+    }
+    //get all account endpoint
+    @GetMapping(path = "accounts")
+    public List<Account> getAll(){
+        return accountService.getAll();
+    }
+}
+
+
+
+Day 1 Session 2:
+-------------
+=> Spring REST
+	Controlling http status code
+	Exception handling
+
+	
+=> Spring data
+
+		web -------------- service -------------------repo -----------db
+														ramu/shayau
+														crud op : automize it
+		Adv:
+		1. u dont have to write dao layer
+		2. it support both RDBMS and NOSQL
+		
+		JPA+H2
+		
+		Validation
+	
+=>Spring boot Monotring and Logging
+=> spring boot profile
+=> spring boot actuator
+=>Apply 12 Factor methodology in Microservices using Spring Cloud
+=> Spring Boot microservice architecture
+=> spring boot openfeign
+
+
+
+
+
+
+Step 5: How to use correct http status code:
+----------------------------------------
+ResponseEntity
+
+
+
+
+
+
+Step 6: rest controller exception handling
+_______________________________________
+@ResponseStatus(code =HS.NotFound)
+ProductNotFoundException extends RuntimeExcetion{
+}
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ErrorDetails {
+	private String message;
+	private String details;
+	
+	private String name;
+	private Date date;
+	
+}
+
+
+
+@RestControllerAdvice
+public class ExHandler {
+
+	@ExceptionHandler(ProductNotFoundException.class)
+	public ResponseEntity<ErrorDetails> handle404(Exception ex, WebRequest req){
+		ErrorDetails details=new ErrorDetails();
+		details.setDate(new Date());
+		details.setDetails(req.getDescription(true));
+		details.setName("rgupta.mtech@gmail.com");
+		details.setDetails(ex.toString());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(details);
+	}
+	
+
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorDetails> handle500(Exception ex, WebRequest req){
+		ErrorDetails details=new ErrorDetails();
+		details.setDate(new Date());
+		details.setDetails(req.getDescription(true));
+		details.setName("rgupta.mtech@gmail.com");
+		details.setDetails(ex.toString());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(details);
+	}
+
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorDetails> handle500(Exception ex, WebRequest req){
+		ErrorDetails details=new ErrorDetails();
+		details.setDate(new Date());
+		details.setDetails(req.getDescription(true));
+		details.setName("rgupta.mtech@gmail.com");
+		details.setDetails(ex.toString());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(details);
+	}
+
+}
+
+
+Spring boot database configuration with H2
+-------------------------------------------
+server.port=8090
+server.servlet.context-path=/productapp
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+# Custom H2 Console URL
+spring.h2.console.path=/h2
+
+spring.jpa.hibernate.ddl-auto=update
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+spring.jpa.show-sql=true 
+
+
+
+Using validation api
+------------------------
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AccountDto {
+
+	private int id;
+	
+	@NotNull(message = "{account.name.absent}")
+	@Pattern(regexp = "[A-Za-z]+( [A-Za-z]+)*", message = "{account.name.invalid}")
+	private String name;
+	
+	@NotNull(message = "{account.balance.absent}")
+	@Range(min = 100, max = 100000, message = "{account.balance.invalid}")
+	private BigDecimal balance;
+
+	@Email(message = "{account.email.invalid}")
+	@NotNull(message = "{account.email.absent}")
+	private String email;
+	
+	@NotNull(message = "{account.phone.absent}")
+	@Pattern(regexp = "[789][0-9]{9}", message = "{account.phone.invalid}")
+	private String phone;
+	
+	public AccountDto(String name, BigDecimal balance, String email, String phone) {
+		this.name = name;
+		this.balance = balance;
+		this.email = email;
+		this.phone = phone;
+	}
+}
+
+
+ValidationMessages.properties
+_____________________________-
+
+account.email.absent=Please provide email address
+account.email.invalid=Please provide valid email address
+
+account.name.absent=Please provide customer name
+account.name.invalid=Name should contain only alphabets and space
+
+account.phone.absent=Please provide phone 
+account.phone.invalid=Please provide correct phone number of 10 digits
+
+account.balance.absent=Please provide initial balance 
+account.balance.invalid=Please provide correct initial balance bw 100 to 100000
+
+
+@RestControllerAdvice
+public class AccountExceptionRestController {
+
+	@Autowired
+	private Environment environment;
+
+	// ---------handling 404 error------
+	@ExceptionHandler(AccountNotFoundException.class)
+	public ResponseEntity<ErrorInfo> handleAccountNotFound(AccountNotFoundException accountNotFoundException) {
+		ErrorInfo errorInfo = new ErrorInfo().builder().dateTime(LocalDateTime.now()).toContact("masterbank@bank.com")
+				.errorCode(404).errorMessage(environment.getProperty(accountNotFoundException.getMessage())).build();
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorInfo);
+	}
+
+	// ---------handling 500 error------
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorInfo> handle500(Exception exception) {
+		ErrorInfo errorInfo = new ErrorInfo().builder().dateTime(LocalDateTime.now()).toContact("masterbank@bank.com")
+				.errorCode(500).errorMessage(environment.getProperty(exception.getMessage())).build();
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorInfo);
+	}
+
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public Map<String, String> handleInvalidArgument(MethodArgumentNotValidException ex) {
+
+		Map<String, String> errorMap = new HashMap<>();
+		ex.getBindingResult().getFieldErrors().forEach(error -> {
+			errorMap.put(error.getField(), error.getDefaultMessage());
+		});
+		return errorMap;
+	}
+}
+
+
+
+UserInterface.TRANSFER_SUCCESS=transfer done successfully
+UserInterface.DEPOSIT_SUCCESS=amount deposit successfully
+UserInterface.WITHDRAW_SUCCESS=amount withdraw successfully
+
+Service.ACCOUNT_NOT_EXISTS=Account not exist
+
+Service.FROM_ACCOUNT_NOT_EXISTS=From Account not exist
+
+Service.TO_ACCOUNT_NOT_EXISTS=To Account not exist
+
+Service.NOT_SUFFICIENT_BALANCE=Account dont have sufficient balance
+
+
+
+Spring boot microservice day 2
+--------------------------------
+spring ---> spring boot --> design pattern--> spring boot ms
+
+Spring:
+	DI: Loose coupling
+		@Component
+		 |
+	-----------------------------------
+	|				|					|
+	@RestController @Service		@Repository
+	
+	bank app:
+	web---------------- service ----------------repo --------h2
+	
+	AOP: High cohesion
+		CCC: tx, sec, logging, caching, ex handling
+		
+		actual code + ccc ----------> code become compiliated
+		
+Spring boot : aka wrapper over spring framework
+	opentioned framework
+	Bean: any object whose life cycle is mainted by spring
+	BB+ infra bean
+			db connection
+			hiberante
+			mongodb
+			......
+			
+REST: arch style to create dist application
+	SOAP, REST , gRPC...
+	
+	Exceptions
+	Validation
+	
+quick recap
+--------------
+Resttemple and open feign
+	is a declarive rest client
+	how to configure it
+	
+spring boot banner
+running as jar file
+spring boot profile
+spring boot as war deployed to tomcat
+spring boot documentaions/Swagger
+spring boot Actuator, graphana and promethesis
+
+
+intro to ms
+12 factors rules/15 factors rules
+Spring cloud and project
+https://spring.io/projects/spring-cloud
+
+spring boot docker 
+spring boot kafaka
+
+
+spring boot reading prop files
+
+
+spring boot bannner:
+--------------------
+
+spring.banner.location=classpath:banner.txt
+
+https://devops.datenkollektiv.de/banner.txt/index.html
+
+
+Running spring boot app as a jar file:
+------------------------------------------
+java -jar  jpa_demo2-0.0.1-SNAPSHOT.jar --server.port=8050
+java -jar -Dspring.profiles.active=foo bankapp.jar
+
+only for one app: ms 100
+	config have to chnage to feq
+	:(
+spring cloud:
+	config server
+	
+Spring boot as a war file deployed to tomcat
+--------------------------------------------
+
+Supporting both xml and json:
+	_______________________________
+
+	Step 1: put parser for xml
+
+	     <dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+	     </dependency>
+
+	Step 2:
+	@GetMapping(path = "products", produces = {MediaType.APPLICATION_JSON_VALUE, 
+			MediaType.APPLICATION_XML_VALUE})
+
+
+
+
+
+Spring boot loging customization:
+_____________________________________
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+
+log4j2.xml
+----------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+
+    <Appenders>
+        <File name="FILE" fileName="logfile.log" append="true">
+            <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n"/>
+        </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+   <Logger name="com.sunlife" level="debug"/>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="FILE"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
+
+spring boot logging:
+-------------------
+ 	     
+Disable logging :
+---------------
+logging.level.root=OFF
+logging.level.org.springframework.boot=OFF
+spring.main.banner-mode=OFF   
+
+	     
+     
+Customizing logging :
+---------------	     
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+logging.level.com.productapp=info
+
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+
+# Logging pattern for the console
+logging.pattern.console= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#logging pattern for file
+logging.pattern.file= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+
+logging.file.name=/home/raj/Desktop/logs/server.log
+	     
+
+9. Using OpenAPI 3.0
+_____________________
+https://www.bezkoder.com/spring-boot-swagger-3/
+https://www.baeldung.com/spring-rest-openapi-documentation
+
+https://editor.swagger.io/
+
+=> Documenting a Spring REST API Using OpenAPI 3.0
+=>Swagger is almost equivalent to SOAP formate, used for documentation of REST api
+
+		Step 1:
+
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		<version>2.2.0</version>
+	</dependency>
+
+	Step 2:
+
+	http://localhost:8090/bookapp/v3/api-docs
+	
+	http://localhost:8090/bookapp/swagger-ui/index.html
+
+	http://localhost:8090/bookapp/v3/api-docs.yaml
+
+	Step 3:
+	Customization location
+	springdoc.swagger-ui.path=/swagger-ui-bookapp.html
+
+	@OpenAPIDefinition(info = @Info(title = "bookapp API", version = "2.0" , description = "YMSLI bookapp API"))
+	public class BookappApplication implements CommandLineRunner {
+	}
+
+
+	
+	@OpenAPIDefinition(
+			info = @Info(
+					title = "",
+					description = "",
+					version = "v1",
+					contact = @Contact(
+							name = "",
+							email = "",
+							url = ""
+					),
+					license = @License(
+							name = "Apache 2.0",
+							url = "https://www.cbre.com"
+					)
+			),
+			externalDocs = @ExternalDocumentation(
+					description =  "",
+					url = "https://www.cbre.com/swagger-ui.html"
+			)
+	)
+	
+https://www.bezkoder.com/spring-boot-swagger-3/
+
+spring boot reading property files:
+---------------------------------
+
+1. @Value annotation
+2. Enviornment
+3. @ConfigrationProperties
+
+
+@EnableConfigurationProperties(InfoDto.class)
+
+@ConfigrationProperties(prefix="db")
+
+Example:
+--------
+account:
+  message: "welcome to productapp account manager"
+  contactDetails:
+    name: "raj"
+    email: "rgupta.mtech@gmail.com"
+  onCallSupport:
+    -54645464556
+    -75765777677
+	
+	
+
+@ConfigurationProperties(prefix = "account")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class InfoDto {
+    private String message;
+    private Map<String, String>contactDetails;
+    private List<String>onCallSupport;
+}
+
+
+
+
+
+10. caching
+_____________
+1. In memory cache
+-------------------
+
+step 1: configuration of cache
+
+@Configuration
+@EnableCaching
+public class CachingConfig {
+	@Bean
+	public CacheManager cacheManager(){
+		ConcurrentMapCacheManager cacheManager=new ConcurrentMapCacheManager("products");
+		return cacheManager;
+		
+	}
+}
+
+
+Step 2: applying cache annotations on service layer
+
+@Slf4j
+@Service
+@Transactional
+public class ProductServiceImpl implements ProductService {
+
+	
+	@Cacheable(value="products")
+	@Override
+	public List<Product> findAll() {
+		//
+	}
+
+	@Cacheable(value="products", key = "#id")
+	@Override
+	public Product getById(int id) {
+		//
+	}
+
+	@CachePut(value="products", key="#result.id")
+	@Override
+	public Product addProduct(Product product) {
+		//
+	}
+
+	@CachePut(value="products", key="#result.id")
+	@Override
+	public Product updateProduct(int id, Product product) {
+		//
+	}
+
+	@CacheEvict(value="products", key="#id")
+	@Override
+	public Product deleteProduct(int id) {
+		//
+	}
+
+	@CacheEvict(value="products", allEntries=true)
+	@Override
+	public void evictCache() {
+		log.info("cache is cleared...");
+	}
+
+}
+
+
+
+Step 11: schedule processes
+____________________________
+
+	Note:
+	The simple rules that we need to follow to annotate a method with @Scheduled are:
+
+			a method should have the void return type
+			a method should not accept any parameters
+
+	step 1: put @EnableScheduling on bootstrap class
+
+	step 2: create an component with @Scheduled annotation
+
+				
+		@Service
+		public class ScheduledJob {
+			private Logger logger = LoggerFactory.getLogger(ScheduledJob.class);
+		
+			@Autowired
+			private ProductService service;
+		
+			@Scheduled(cron = "0,30 * * * * *")
+			public void cronJob() {
+				logger.info("> cronJob");
+		
+				List<Product> products = service.findAll();
+				logger.info("There are {} products in the data store.", products.size());
+		
+				logger.info("< cronJob");
+			}
+		
+			// after application startup delay of 5 sec, schedule to run each after 15
+			
+			@Scheduled(initialDelay = 5000, fixedRate = 15000)
+			public void fixedRateJob() {
+				logger.info("> fixedRateJob");
+		
+				// Add scheduled logic here
+		
+				List<Product> products = service.findAll();
+				
+				logger.info("There are {} books in the data store.", products.size());
+		
+				logger.info("< fixedRateJob");
+			}
+		
+		}
+
+
+ref:
+https://www.baeldung.com/spring-scheduled-tasks
+https://www.tutorialspoint.com/unix_commands/crontab.htm
+
+Spring boot Actuator:
+-------------------------
+
+server.port=8080
+spring.devtools.restart.enabled=true
+#management.endpoints.web.exposure.exclude=*
+management.endpoints.web.exposure.include=health, custom-endpoint
+management.endpoint.health.show-details=always
+management.health.disk.enabled=true
+management.health.livenessstate.enabled=true
+management.health.readinessstate.enabled=true
+management.server.port=9090
+
+management.endpoint.shutdown.enabled=true
+
+#/actuator/info endpoint will show the information given here, keys
+# that are started with info
+info.app.encoding=UTF-8
+info.app.java.source=11
+info.app.java.target=11
+info.app.name=spring booot actuator
+
+
+Custom end points
+
+@Configuration
+@Endpoint(id = "custom-endpoint")
+public class CustomEndpoints {
+    @ReadOperation
+    public String getCustomData(){
+        return "This is custom Data";
+    }
+}
+
+
+
+Spring boot js
+----------------
+  <script>
+        let data = fetch('http://localhost:8080/empapp/employee')
+        data.then((item) => {
+            return item.json();
+        }).then((result) => {
+            console.log(result);
+        })
+
+    </script>
+
+
+
+
+-----------imp property file configurations------------------
+
+server.port=8090
+server.servlet.context-path=/bankapp
+spring.datasource.driver-class-name= com.mysql.jdbc.Driver
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto= update
+spring.datasource.url=jdbc:mysql://localhost:3306/edu123?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+spring.jpa.hibernate.ddl-auto=update
+
+# if u want to disable logging
+#logging.level.root=OFF
+#logging.level.org.springframework.boot=OFF
+#spring.main.banner-mode=OFF
+
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+logging.level.com.productapp: INFO
+logging.level.com.productapp.service: INFO
+
+logging.pattern.console= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#logging pattern for file
+logging.pattern.file= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#i wnat to send logs to a specific file?
+
+spring.jpa.show-sql=true 
+spring.banner.location=	
+
+spring.jmx.enabled=true
+management.endpoints.web.exposure.include=*
+management.endpoints.jmx.exposure.include=*
+
+management.info.env.enabled=true
+info.app.encoding=UTF-8
+info.app.java.source=21
+info.app.java.target=21
+info.app.name=productapp
+info.app.dev=amit ku
+
+management.endpoint.health.show-details=always
+management.endpoint.health.probes.enabled=true
+# livenessstate readinessstate
+#management.health.livenessstate.enabled=true
+#management.health.readinessstate.enabled=true
+
+UserInterface.INTERNAL_SERVER_ERROR=some internal server error
+#UserInterface.PRODUCT_ADD_SUCCESS=product added successfully
+#UserInterface.PRODUCT_UPDATE_SUCCESS=product added successfully
+#UserInterface.PRODUCT_DELETE_SUCCESS=product added successfully
+#
+#Service.PRODUCT_NOT_EXISTS=Product not exist
+#
+#
+#product.name.absent=Please provide product name
+#product.name.invalid=product Name should contain only alphabets and space
+#
+#product.price.absent=Please provide product price
+#account.price.invalid=Please provide correct price bw 100 to 100000
+
+info.key=default
+spring.profiles.active=test
+
+
+
+
+server.port=8090
+server.servlet.context-path=/productapp
+spring.h2.console.enabled=true
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=foo
+spring.datasource.password=foo
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+# Custom H2 Console URL
+spring.h2.console.path=/h2
+
+spring.jpa.hibernate.ddl-auto=update
