@@ -1,0 +1,78 @@
+	Session 2:
+	---------------------------------
+	let we wait for other just for 5min
+	----------------------------------
+	
+        ◦ Qucick recap Spring Boot
+        ◦ RESful Application with Spring Boot
+            ▪ An introduction to the REST architectural style
+            ▪ Controlling HTTP response codes with @ResponseStatus
+            ▪ Implementing REST with Spring MVC, 
+				@RequestMapping, @RequestBody and @ResponseBody
+            ▪ Exception handling with Spring Boot REST
+            ▪ Open API documentation with Spring Boot
+            ▪ Validation with Spring boot
+			      
+        ◦ Spring Boot – Data Persistence with Spring Data JPA
+            ▪ Quick introduction to ORM with JPA
+            ▪ Benefits of using Spring with JPA
+            ▪ JPA configuration in Spring
+			
+			
+			@SpringBootApplication
+				=@SpringBootConfiguration+ @EnableAutoConfiguration+ @ComponentScan
+				
+				
+			@RestController =@Controller+ @ResponseBody
+				used to create REST api
+			
+			@Controller
+				used to create app with jsp 		X
+			@ResponseBody
+				Paser in spring boot (convert one thing to another) java <---> json
+					jakson parser
+			
+			@ResponseBody: trigger that parser and tell to convert data into json
+			
+			@RequestMapping: it is a generic annotation
+				class as well as method
+				
+			@RequestMapping
+			 |
+			 -----------
+			 GetMapping: only on method level
+			 PostMapping
+			 PutMapping
+			 DeleteMapping
+			 Patch...
+			 
+			 
+			 server.servlet.context-path=/bankapp
+			 to define root context of the application
+			 now u need to add /bankapp with all the request
+			 
+			 
+	@RestController
+	@RequestMapping(path = "/ora")
+	//@Controller //jsp based application
+	//@ResponseBody
+	public class HelloController {
+
+		
+		//http://localhost:8090/bankapp/ora/hello/foo/ravi/delhi
+		@GetMapping(path = "/hello/foo/{uname}/{city}")
+		public String hello(@PathVariable(name="uname") String name,  @PathVariable(name="city") String town) {
+			return "hello to spring boot "+ name+" "+town;
+		}
+		
+		//Pagination
+		//RequestParam
+		//http://localhost:8090/bankapp/ora?name=raja&city=kochi
+		@GetMapping
+		public String hello2(@RequestParam(name="name")String name, 
+				@RequestParam(name="city", required = false, defaultValue = "Kochi") String city) {
+			return "hi "+ name+" "+ city;
+		}
+	}
+			
+			
