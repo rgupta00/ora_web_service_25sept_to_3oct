@@ -10,7 +10,7 @@ public interface AccountService {
 	
 	public Account getById(int id);
 	
-	public void transfer(int fromAcc, int toAcc, BigDecimal amount);
+	public void transfer(int fromAccId, int toAccId, BigDecimal amount);
 	
 	public void deposit(int accId, BigDecimal amount);
 	

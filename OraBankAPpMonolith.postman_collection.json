@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "5fc7cecc-0a7a-44d5-9808-4c68fbaa4995",
+		"name": "OraBankAPpMonolith",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1432109"
+	},
+	"item": [
+		{
+			"name": "account crud op",
+			"item": [
+				{
+					"name": "GetAll Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account By id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/accounts/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account tx op",
+			"item": [
+				{
+					"name": "transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccId\":1,\r\n    \"toAccId\":2,\r\n    \"amount\":10\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/transfer"
+					},
+					"response": []
+				},
+				{
+					"name": "withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accId\":1,\r\n    \"amount\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/withdraw"
+					},
+					"response": []
+				},
+				{
+					"name": "deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accId\":1,\r\n    \"amount\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/deposit"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

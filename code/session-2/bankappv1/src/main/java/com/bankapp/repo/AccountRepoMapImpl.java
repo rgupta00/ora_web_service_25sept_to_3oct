@@ -16,7 +16,7 @@ public class AccountRepoMapImpl implements AccountRepo{
 	public AccountRepoMapImpl() {
 		map.put(1, new Account(1,"raj",
 				BigDecimal.valueOf(1000),"5465454540","raj@gmail.com"));
-		map.put(2, new Account(1,"ekta",
+		map.put(2, new Account(2,"ekta",
 				BigDecimal.valueOf(1000),"5465054540","ekta@gmail.com"));
 	}
 	@Override
