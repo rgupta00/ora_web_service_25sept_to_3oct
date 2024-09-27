@@ -63,9 +63,47 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 204: delete op 
 
 
+Excpetion handing:
+---------------------
+ur application must give graceful response to the username
+
+{
+    "timestamp": "2024-09-27T06:13:08.119+00:00",
+    "status": 500,
+    "error": "Internal Server Error",
+    "toContact":"pawan@oracle.com"
+}
+
+1. u created a pojo to hold the error message
 
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ErrorDetails {
+	private String timestamp;
+	private String status;
+	private String errorMsg;
+	private String toContact;
+}
 
+
+2. we need to create a specical controller that handle the exceptions
+
+
+@RestControllerAdvice //the class that will handle the ex
+public class BankAppExHandlerController {
+
+	@ExceptionHandler(BankAccountNotFoundException.class)
+	public ResponseEntity<ErrorDetails> handle404(BankAccountNotFoundException ex){
+		ErrorDetails details=new ErrorDetails();
+		details.setErrorMsg(ex.getMessage());
+		details.setTimestamp(LocalDateTime.now());
+		details.setStatus(HttpStatus.NOT_FOUND.toString());
+		details.setToContact("raj@gmail.com");
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(details);
+	}
+}
 
 
 
@@ -73,6 +111,16 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 Using validation api
 ------------------------
+while doing post or update operation what we need to enusre that 
+data validation should be applied to the backend app
+
+spring validation api
+used for server side validation
+
+
+step 1: add validation jar in ur project
+
+step 2: annotation for validation on ur pojo class
 
 @Data
 @NoArgsConstructor
@@ -104,6 +152,12 @@ public class AccountDto {
 		this.phone = phone;
 	}
 }
+
+
+step 3: u need to force the valation in post / put method
+
+step 4: u need to handle valiation exeption
+
 
 
 ValidationMessages.properties
@@ -168,8 +222,9 @@ logging.pattern.file= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
 logging.file.name=/home/raj/Desktop/logs/server.log
 	     
 
-9. Using OpenAPI 3.0
-_____________________
+9. Using OpenAPI 3.0/ Swagger
+_________________________________
+
 https://www.bezkoder.com/spring-boot-swagger-3/
 https://www.baeldung.com/spring-rest-openapi-documentation
 
