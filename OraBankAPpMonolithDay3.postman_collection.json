@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "5fc7cecc-0a7a-44d5-9808-4c68fbaa4995",
-		"name": "OraBankAPpMonolith",
+		"_postman_id": "36683465-ed87-45bd-b850-3fb8917ee25a",
+		"name": "OraBankAPpMonolithDay3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "1432109"
 	},
@@ -24,6 +24,51 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:9090/accounts/1"
+					},
+					"response": []
+				},
+				{
+					"name": "delete an Account By id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:9090/accounts/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactNumber\":\"8854545445\",\r\n    \"email\":\"pawan123@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/accounts/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"sunita\",\r\n    \"balance\": 2000.00,\r\n    \"contactNumber\": \"9545045654\",\r\n    \"email\": \"sunita@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/accounts"
 					},
 					"response": []
 				}
