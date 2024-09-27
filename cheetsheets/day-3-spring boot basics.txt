@@ -1,3 +1,5 @@
+let we wait for others to join just for 2min before we started
+==============================================================
 Session 3:
 --------------
     Spring Boot – Data Persistence with Spring Data JPA
@@ -9,12 +11,28 @@ Session 3:
 	 Spring boot profile, running as jar file
 	 Introduction to spring boot microservice, resttemplate , openfeign
 	 
+	 web---------service ---------------repo----------db
+														Oracle, mysql
+														H2 datbase (Dev/test)
+														in memory database, h2 console
 	 
+	 Spring boot autoconfigure the bean
+	 
+	 datasouce bean
+	 hibernate and jpa related beans
+	 
+	 spring 
+	 bean= business bean + infra str bean
+	 
+		@Controlller		+ database connection, hib conn, rabbitmq
+		@Service
+		@Repo
 	 
 Spring boot jpa configuration with h2
 ---------------------------------
 server.port=8090
 server.servlet.context-path=/productapp
+
 spring.h2.console.enabled=true
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
@@ -34,6 +52,15 @@ spring.jpa.show-sql=true
 				  
 Spring boot ResponseEntity:
 -----------------------------
+
+ResponseEntity=data + status codes
+
+IP: use correct status codes
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+200: ok
+201: insert the new rec
+204: delete op 
 
 
 
