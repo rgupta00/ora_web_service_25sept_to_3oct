@@ -1,0 +1,454 @@
+Session 4:
+-----------
+For practice:
+
+https://www.youtube.com/watch?v=XTk6fz1i9UA&list=PLv2-IhRmhbySxOF-hJu2wIvkGMaYg7Imv&index=5&ab_channel=BusyCoderAcademy
+
+crud application on productstore application:
+----------------------------------------------
+	spring help you! DI
+	pull vs push
+	spring framework actually configure all the beans
+	and push the dep where ever req
+	
+	@Autowired
+	
+	web------------- service --------------------- repo -----------db
+	
+spring boot recap
+ spring boot rest
+ spring data
+ 
+ spring Response entity: used to send correct http status code
+ 200: ok
+ 201: created
+ 204: deleted
+ ...
+ ...
+ 
+ Exception handling
+ 
+ {
+    "timestamp": "2024-09-30T05:55:18.420+00:00",
+    "status": 500,
+    "error": "Internal Server Error",
+    "toContact":"ravi@oracle.com"
+}
+
+ validation
+ 
+ logging
+ 
+ actuator: used to expose some endpoint that helpful the 
+ monitor ur application
+ 
+ spring boot microservice introduction
+ resttemplate
+ openfeign
+ 
+ spring security basics
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductDto {
+
+	private int id;
+	
+	@NotNull(message = "{product.name.absent}")
+	@Pattern(regexp = "[A-Za-z]+( [A-Za-z]+)*", message = "{product.name.invalid}")
+	private String name;
+
+	@NotNull(message = "{product.price.absent}")
+	@Range(min = 100, max = 100000, message = "{product.price.invalid}")
+	private BigDecimal price;
+
+}
+
+ 
+ 
+ 
+ 
+server.port=8090
+server.servlet.context-path=/productapp
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+# Custom H2 Console URL
+spring.h2.console.path=/h2
+
+spring.jpa.hibernate.ddl-auto=update
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+spring.jpa.show-sql=true 
+
+
+
+
+logging:
+----------
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+logging.level.com.productapp=info
+
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+
+
+# Logging pattern for the console
+logging.pattern.console= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#logging pattern for file
+logging.pattern.file= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+
+logging.file.name=/home/raj/Desktop/logs/server.log
+
+
+
+
+
+
+9. Using OpenAPI 3.0
+_____________________
+https://www.bezkoder.com/spring-boot-swagger-3/
+https://www.baeldung.com/spring-rest-openapi-documentation
+
+https://editor.swagger.io/
+
+=> Documenting a Spring REST API Using OpenAPI 3.0
+=>Swagger is almost equivalent to SOAP formate, used for documentation of REST api
+
+		Step 1:
+
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		<version>2.2.0</version>
+	</dependency>
+
+	Step 2:
+
+	http://localhost:8090/bookapp/v3/api-docs
+	
+	http://localhost:8090/bookapp/swagger-ui/index.html
+
+	http://localhost:8090/bookapp/v3/api-docs.yaml
+
+	Step 3:
+	Customization location
+	springdoc.swagger-ui.path=/swagger-ui-bookapp.html
+
+	@OpenAPIDefinition(info = @Info(title = "bookapp API", version = "2.0" , description = "YMSLI bookapp API"))
+	public class BookappApplication implements CommandLineRunner {
+	}
+
+
+	
+	@OpenAPIDefinition(
+			info = @Info(
+					title = "",
+					description = "",
+					version = "v1",
+					contact = @Contact(
+							name = "",
+							email = "",
+							url = ""
+					),
+					license = @License(
+							name = "Apache 2.0",
+							url = "https://www.cbre.com"
+					)
+			),
+			externalDocs = @ExternalDocumentation(
+					description =  "",
+					url = "https://www.cbre.com/swagger-ui.html"
+			)
+	)
+
+
+
+important properties:
+---------------------
+
+server.port=8090
+server.servlet.context-path=/bankapp
+spring.datasource.driver-class-name= com.mysql.jdbc.Driver
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto= update
+spring.datasource.url=jdbc:mysql://localhost:3306/edu123?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+spring.jpa.hibernate.ddl-auto=update
+
+# if u want to disable logging
+#logging.level.root=OFF
+#logging.level.org.springframework.boot=OFF
+#spring.main.banner-mode=OFF
+
+
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
+logging.level.com.productapp: INFO
+logging.level.com.productapp.service: INFO
+
+logging.pattern.console= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#logging pattern for file
+logging.pattern.file= "%d{yyyy-MM-dd } [%thread] %-5level %logger{36} - %msg%n"
+#i wnat to send logs to a specific file?
+
+spring.jpa.show-sql=true 
+spring.banner.location=	
+
+spring.jmx.enabled=true
+management.endpoints.web.exposure.include=*
+management.endpoints.jmx.exposure.include=*
+
+management.info.env.enabled=true
+info.app.encoding=UTF-8
+info.app.java.source=21
+info.app.java.target=21
+info.app.name=productapp
+info.app.dev=amit ku
+
+management.endpoint.health.show-details=always
+management.endpoint.health.probes.enabled=true
+# livenessstate readinessstate
+#management.health.livenessstate.enabled=true
+#management.health.readinessstate.enabled=true
+
+UserInterface.INTERNAL_SERVER_ERROR=some internal server error
+#UserInterface.PRODUCT_ADD_SUCCESS=product added successfully
+#UserInterface.PRODUCT_UPDATE_SUCCESS=product added successfully
+#UserInterface.PRODUCT_DELETE_SUCCESS=product added successfully
+#
+#Service.PRODUCT_NOT_EXISTS=Product not exist
+#
+#
+#product.name.absent=Please provide product name
+#product.name.invalid=product Name should contain only alphabets and space
+#
+#product.price.absent=Please provide product price
+#account.price.invalid=Please provide correct price bw 100 to 100000
+
+info.key=default
+spring.profiles.active=test
+
+
+
+
+server.port=8090
+server.servlet.context-path=/productapp
+spring.h2.console.enabled=true
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=foo
+spring.datasource.password=foo
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+# Custom H2 Console URL
+spring.h2.console.path=/h2
+
+spring.jpa.hibernate.ddl-auto=update
+
+
+Spring boot microservice:
+---------------------------
+what is microservice?
+	set of arch design pattern to create distributed application
+	
+	monolith application:
+	all modules are there within the same application
+	
+	microserice:
+	the app is divided into multiple module that taking to each other using
+	rest or ayn communication using rabbitmq or kafka
+	
+
+	syn:
+	resttemplate vs openfeign: declartive rest client
+	
+	ayn:
+	rabbitmq or kafka
+	
+	
+
+Spring security with database:
+-----------------------
+Step 3: Spring sec with database
+
+step 3 a: 
+define user entity
+---------------------
+@Data
+@NoArgsConstructor
+@ToString
+@Entity
+@Table(name = "user_table_2")
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(unique = true, nullable = false)
+    private String username;
+    private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="user_roles_2")
+    private List<String> roles= new ArrayList<>();
+
+    public UserEntity(String username, String password, List<String> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
+}
+
+step 3 b: define repo
+--------------------
+
+@Repository
+public interface UserRepo extends JpaRepository<UserEntity, Integer> {
+    public UserEntity findByUsername(String userName);
+}
+
+step 3 c: define service layer
+-------------------------------
+
+public interface UserEntityService {
+    public UserEntity findByUsername(String username);
+    public void addUserEntity(UserEntity userEntity);
+}
+
+
+@Service
+@Transactional
+public class UserEntityServiceImpl implements UserEntityService{
+    private UserRepo userRepo;
+    @Autowired
+    public UserServiceImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
+    @Override
+    public UserEntity findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
+
+    @Override
+    public void addUserEntity(UserEntity userEntity) {
+        userRepo.save(userEntity);
+    }
+}
+
+step 3 d: define userDetail service
+--------------------------------------
+@Service
+public class DetailService implements UserDetailsService {
+
+    @Autowired
+    private UserEntityService userEntityService;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity=userEntityService.findByUsername(username);
+        if(userEntity==null)
+            throw new UsernameNotFoundException("Username/password is invalid");
+        //now problem: userEntity--->UserDetails(which spring sec understand)
+        return new SecUser(userEntity);
+    }
+}
+
+
+step 3 e: define secUser
+-------------------------
+
+public class SecUser implements UserDetails {
+
+    private UserEntity userEntity;
+
+    public SecUser(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<String> roles=userEntity.getRoles();
+        //somehow u need to createe AL to Array
+        String []rolesArray=roles.toArray(new String[roles.size()]);
+
+        return AuthorityUtils.createAuthorityList(rolesArray);
+    }
+
+    @Override
+    public String getPassword() {
+        return userEntity.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return userEntity.getUsername();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+
+step 3 f: initilized database
+---------------------------
+		//String username, String password, List<String> roles
+userService.addUserEntity(new UserEntity("raj","raj123", List.of("ROLE_MGR","ROLE_CLERK")));
+userService.addUserEntity(new UserEntity("ekta","ekta123", List.of("ROLE_CLERK")));
+
+
+with password encoder:
+---------------------------
+
+userService.addUserEntity(new UserEntity("raj",passwordEncoder.encode("raj123"), List.of("ROLE_MGR","ROLE_CLERK")));
+userService.addUserEntity(new UserEntity("ekta",passwordEncoder.encode("ekta123"), List.of("ROLE_CLERK")));
+
+
+
+
+
+
+

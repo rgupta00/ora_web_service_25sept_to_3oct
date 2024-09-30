@@ -224,7 +224,11 @@ logging.file.name=/home/raj/Desktop/logs/server.log
 
 9. Using OpenAPI 3.0/ Swagger
 _________________________________
-
+ur dev ur rest api -----------> to client for testing purpose
+	show them a useful ui so that it is easy for testing ur api
+	
+	
+	
 https://www.bezkoder.com/spring-boot-swagger-3/
 https://www.baeldung.com/spring-rest-openapi-documentation
 
@@ -242,6 +246,11 @@ https://editor.swagger.io/
 	</dependency>
 
 	Step 2:
+	http://localhost:9090/swagger-ui/index.html
+	
+	
+	
+	
 
 	http://localhost:8090/bookapp/v3/api-docs
 	
@@ -320,8 +329,24 @@ public class InfoDto {
 
 Spring boot Actuator:
 -------------------------
+what is spring boot Actuator?
 
+application monitoring:
+	heap ?
+	threads?
+	ram, hd
+	beans?
+	used to monitor our application
+	
+	easy: u just to add some jar in ur project
+	
+	expose some endpoint on:
+	-------------------
+	http
+	jmx: java management extension 
+	
 server.port=8080
+
 spring.devtools.restart.enabled=true
 #management.endpoints.web.exposure.exclude=*
 management.endpoints.web.exposure.include=health, custom-endpoint

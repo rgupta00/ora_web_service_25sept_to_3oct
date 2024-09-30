@@ -1,0 +1,583 @@
+2024-09-30T11:52:59.837+05:30  INFO 10976 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 10976 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T11:52:59.837+05:30  INFO 10976 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T11:53:00.031+05:30  INFO 10976 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T11:53:00.037+05:30  INFO 10976 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interface.
+2024-09-30T11:53:00.137+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T11:53:00.138+05:30  INFO 10976 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T11:53:00.138+05:30  INFO 10976 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T11:53:00.147+05:30  INFO 10976 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T11:53:00.147+05:30  INFO 10976 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 309 ms
+2024-09-30T11:53:00.189+05:30  INFO 10976 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-30T11:53:00.192+05:30  INFO 10976 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T11:53:00.192+05:30  INFO 10976 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-30T11:53:00.192+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T11:53:00.229+05:30 DEBUG 10976 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T11:53:00.259+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T11:53:00.298+05:30  INFO 10976 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T11:53:00.402+05:30  WARN 10976 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T11:53:00.437+05:30 DEBUG 10976 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T11:53:00.487+05:30 DEBUG 10976 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T11:53:00.506+05:30 DEBUG 10976 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T11:53:00.513+05:30 DEBUG 10976 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T11:53:00.705+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T11:53:00.708+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-30T11:53:00.735+05:30  INFO 10976 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T11:53:00.742+05:30  INFO 10976 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 0.943 seconds (process running for 53.331)
+2024-09-30T11:53:00.751+05:30  INFO 10976 --- [productapp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   LogFileWebEndpointAutoConfiguration#logFileWebEndpoint matched:
+      - Log File found logging.file.name server.log (LogFileWebEndpointAutoConfiguration.LogFileCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.logging.LogFileWebEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-09-30T11:53:02.409+05:30  INFO 10976 --- [productapp] [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T11:53:02.573+05:30  INFO 10976 --- [productapp] [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T11:53:02.576+05:30  WARN 10976 --- [productapp] [RMI TCP Connection(13)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T11:53:02.578+05:30  INFO 10976 --- [productapp] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-09-30T11:53:02.581+05:30  INFO 10976 --- [productapp] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-09-30T11:53:07.186+05:30  INFO 9128 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 9128 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T11:53:07.189+05:30  INFO 9128 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T11:53:07.261+05:30  INFO 9128 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T11:53:07.262+05:30  INFO 9128 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T11:53:08.329+05:30  INFO 9128 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T11:53:08.407+05:30  INFO 9128 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interface.
+2024-09-30T11:53:09.213+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T11:53:09.231+05:30  INFO 9128 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T11:53:09.232+05:30  INFO 9128 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T11:53:09.287+05:30  INFO 9128 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T11:53:09.287+05:30  INFO 9128 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2024 ms
+2024-09-30T11:53:09.444+05:30  INFO 9128 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T11:53:09.661+05:30  INFO 9128 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T11:53:09.662+05:30  INFO 9128 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T11:53:09.676+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T11:53:09.786+05:30 DEBUG 9128 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T11:53:10.270+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T11:53:11.168+05:30  INFO 9128 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T11:53:11.613+05:30  WARN 9128 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T11:53:11.737+05:30 DEBUG 9128 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T11:53:11.870+05:30 DEBUG 9128 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T11:53:11.914+05:30 DEBUG 9128 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T11:53:11.959+05:30 DEBUG 9128 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T11:53:12.403+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T11:53:12.412+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-30T11:53:12.501+05:30  INFO 9128 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T11:53:12.516+05:30  INFO 9128 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 5.753 seconds (process running for 6.413)
+2024-09-30T11:53:14.536+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T11:53:14.536+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T11:53:14.537+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T11:53:14.537+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T11:53:14.537+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T11:53:14.540+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@362a380b
+2024-09-30T11:53:14.541+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7a3c43f1
+2024-09-30T11:53:14.542+05:30 DEBUG 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T11:53:14.542+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-09-30T11:53:17.145+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/productapp/products", parameters={}
+2024-09-30T11:53:17.157+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#addProduct(Product)
+2024-09-30T11:53:17.226+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Product(id=0, name=monk who sold the farrari, price=200.00)]
+2024-09-30T11:53:17.271+05:30  INFO 9128 --- [productapp] [http-nio-8090-exec-2] c.productapp.service.ProductServiceImpl  : -----------------------------
+2024-09-30T11:53:17.272+05:30  INFO 9128 --- [productapp] [http-nio-8090-exec-2] c.productapp.service.ProductServiceImpl  : time taken to execute addProduct method is 2 ms
+2024-09-30T11:53:17.287+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-30T11:53:17.290+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=3, name=monk who sold the farrari, price=200.00)]
+2024-09-30T11:53:17.318+05:30 DEBUG 9128 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-09-30T11:53:54.651+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T11:53:54.814+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T11:53:54.818+05:30  WARN 9128 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T11:53:54.819+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-30T11:53:54.821+05:30  INFO 9128 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-30T12:13:08.227+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 19696 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:13:08.229+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:13:08.272+05:30  INFO 19696 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T12:13:08.273+05:30  INFO 19696 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T12:13:09.071+05:30  INFO 19696 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:13:09.125+05:30  INFO 19696 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2024-09-30T12:13:09.727+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:13:09.738+05:30  INFO 19696 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:13:09.738+05:30  INFO 19696 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:13:09.779+05:30  INFO 19696 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:13:09.779+05:30  INFO 19696 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1506 ms
+2024-09-30T12:13:09.884+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T12:13:10.032+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:13:10.033+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T12:13:10.039+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:13:10.129+05:30 DEBUG 19696 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:13:10.513+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:13:11.269+05:30  INFO 19696 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:13:11.695+05:30  WARN 19696 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:13:11.795+05:30 DEBUG 19696 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:13:11.920+05:30 DEBUG 19696 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:13:11.965+05:30 DEBUG 19696 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:13:11.999+05:30 DEBUG 19696 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:13:12.421+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:13:12.429+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:13:12.521+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:13:12.536+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 4.648 seconds (process running for 5.117)
+2024-09-30T12:13:12.791+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:13:12.791+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:13:12.791+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:13:12.791+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:13:12.791+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:13:12.792+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@70a232da
+2024-09-30T12:13:12.792+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@139a612e
+2024-09-30T12:13:12.792+05:30 DEBUG 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:13:12.794+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-09-30T12:13:23.551+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actator", parameters={}
+2024-09-30T12:13:23.574+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-09-30T12:13:23.582+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-09-30T12:13:23.590+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource actator.]
+2024-09-30T12:13:23.592+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-09-30T12:13:23.608+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/productapp/error", parameters={}
+2024-09-30T12:13:23.618+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2024-09-30T12:13:23.672+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2024-09-30T12:13:23.685+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-09-30T12:13:28.334+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator", parameters={}
+2024-09-30T12:13:28.346+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:13:28.359+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{_links={self=[Link@5ead9d6a href = 'http://localhost:8090/productapp/actuator'], beans=[Link@412e01 (truncated)...]
+2024-09-30T12:13:28.390+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:13:36.260+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/info", parameters={}
+2024-09-30T12:13:36.267+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:13:36.286+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:13:36.287+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{}]
+2024-09-30T12:13:36.289+05:30 DEBUG 19696 --- [productapp] [http-nio-8090-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:14:05.979+05:30  INFO 19696 --- [productapp] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-30T12:14:06.145+05:30  INFO 19696 --- [productapp] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:06.148+05:30  WARN 19696 --- [productapp] [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:14:06.149+05:30  INFO 19696 --- [productapp] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-30T12:14:06.151+05:30  INFO 19696 --- [productapp] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-30T12:14:06.252+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 19696 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:14:06.254+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:14:06.445+05:30  INFO 19696 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:14:06.451+05:30  INFO 19696 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interface.
+2024-09-30T12:14:06.548+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:14:06.548+05:30  INFO 19696 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:14:06.548+05:30  INFO 19696 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:14:06.560+05:30  INFO 19696 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:14:06.560+05:30  INFO 19696 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 305 ms
+2024-09-30T12:14:06.601+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-30T12:14:06.601+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:14:06.601+05:30  INFO 19696 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-30T12:14:06.603+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:14:06.624+05:30 DEBUG 19696 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:14:06.655+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:14:06.698+05:30  INFO 19696 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:06.790+05:30  WARN 19696 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:14:06.827+05:30 DEBUG 19696 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:14:06.877+05:30 DEBUG 19696 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:14:06.894+05:30 DEBUG 19696 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:14:06.902+05:30 DEBUG 19696 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:14:07.078+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:14:07.082+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:14:07.113+05:30  INFO 19696 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:14:07.121+05:30  INFO 19696 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 0.898 seconds (process running for 59.702)
+2024-09-30T12:14:07.131+05:30  INFO 19696 --- [productapp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   InfoContributorAutoConfiguration#envInfoContributor matched:
+      - @ConditionalOnEnabledInfoContributor management.info.env.enabled is true (OnEnabledInfoContributorCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-09-30T12:14:09.431+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T12:14:09.592+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:09.594+05:30  WARN 19696 --- [productapp] [RMI TCP Connection(10)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:14:09.594+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-09-30T12:14:09.596+05:30  INFO 19696 --- [productapp] [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-09-30T12:14:13.731+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 16296 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:14:13.737+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:14:13.803+05:30  INFO 16296 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T12:14:13.803+05:30  INFO 16296 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T12:14:14.855+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:14:14.913+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2024-09-30T12:14:15.618+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:14:15.630+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:14:15.630+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:14:15.678+05:30  INFO 16296 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:14:15.678+05:30  INFO 16296 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1874 ms
+2024-09-30T12:14:15.813+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T12:14:16.015+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:14:16.017+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T12:14:16.029+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:14:16.139+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:14:16.622+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:14:17.536+05:30  INFO 16296 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:17.971+05:30  WARN 16296 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:14:18.096+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:14:18.202+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:14:18.258+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:14:18.304+05:30 DEBUG 16296 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:14:18.722+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:14:18.732+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:14:18.828+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:14:18.843+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 5.543 seconds (process running for 6.138)
+2024-09-30T12:14:19.551+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:14:19.551+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:14:19.552+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:14:19.552+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:14:19.552+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:14:19.552+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@351b2920
+2024-09-30T12:14:19.553+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@33d11537
+2024-09-30T12:14:19.553+05:30 DEBUG 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:14:19.553+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-09-30T12:14:26.282+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/info", parameters={}
+2024-09-30T12:14:26.312+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:14:26.327+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:14:26.333+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{app={encoding=UTF-8, java={source=21, target=21}, name=productapp, dev=amit ku}}]
+2024-09-30T12:14:26.345+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:14:50.653+05:30  INFO 16296 --- [productapp] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-30T12:14:50.821+05:30  INFO 16296 --- [productapp] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:50.825+05:30  WARN 16296 --- [productapp] [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:14:50.826+05:30  INFO 16296 --- [productapp] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-30T12:14:50.827+05:30  INFO 16296 --- [productapp] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-30T12:14:50.918+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 16296 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:14:50.919+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:14:51.116+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:14:51.120+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interface.
+2024-09-30T12:14:51.220+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:14:51.220+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:14:51.220+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:14:51.230+05:30  INFO 16296 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:14:51.230+05:30  INFO 16296 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 310 ms
+2024-09-30T12:14:51.273+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-30T12:14:51.274+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:14:51.274+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-30T12:14:51.274+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:14:51.300+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:14:51.325+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:14:51.372+05:30  INFO 16296 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:14:51.461+05:30  WARN 16296 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:14:51.506+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:14:51.555+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:14:51.568+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:14:51.581+05:30 DEBUG 16296 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:14:51.752+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:14:51.755+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:14:51.785+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:14:51.793+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 0.892 seconds (process running for 39.088)
+2024-09-30T12:14:51.801+05:30  INFO 16296 --- [productapp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-09-30T12:14:56.234+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:14:56.235+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:14:56.235+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:14:56.235+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:14:56.235+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:14:56.238+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@54adfcc5
+2024-09-30T12:14:56.238+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2c2d79bb
+2024-09-30T12:14:56.239+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:14:56.239+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-09-30T12:14:56.239+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/info", parameters={}
+2024-09-30T12:14:56.240+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:14:56.241+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:14:56.242+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{app={encoding=UTF-8, java={source=17, target=17}, name=productapp, dev=amit ku}}]
+2024-09-30T12:14:56.243+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:15:12.053+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/health", parameters={}
+2024-09-30T12:15:12.055+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:15:12.082+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:15:12.099+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [org.springframework.boot.actuate.health.SystemHealth@f26ed7d]
+2024-09-30T12:15:12.101+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:15:22.808+05:30  INFO 16296 --- [productapp] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-30T12:15:22.971+05:30  INFO 16296 --- [productapp] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:22.972+05:30  WARN 16296 --- [productapp] [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:15:22.973+05:30  INFO 16296 --- [productapp] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-09-30T12:15:22.974+05:30  INFO 16296 --- [productapp] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-09-30T12:15:23.044+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 16296 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:15:23.044+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:15:23.210+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:15:23.223+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 JPA repository interface.
+2024-09-30T12:15:23.312+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:15:23.312+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:15:23.312+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:15:23.326+05:30  INFO 16296 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:15:23.326+05:30  INFO 16296 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 281 ms
+2024-09-30T12:15:23.369+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-09-30T12:15:23.371+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:15:23.371+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-09-30T12:15:23.371+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:15:23.391+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:15:23.420+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:15:23.448+05:30  INFO 16296 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:23.546+05:30  WARN 16296 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:15:23.596+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:15:23.644+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:15:23.659+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:15:23.670+05:30 DEBUG 16296 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:15:23.841+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:15:23.846+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:15:23.869+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:15:23.874+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 0.846 seconds (process running for 71.17)
+2024-09-30T12:15:23.881+05:30  INFO 16296 --- [productapp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-09-30T12:15:27.176+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:15:27.177+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:15:27.177+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:15:27.177+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:15:27.177+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:15:27.179+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@76cf137c
+2024-09-30T12:15:27.180+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4966d677
+2024-09-30T12:15:27.181+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:15:27.181+05:30  INFO 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-09-30T12:15:27.183+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/health", parameters={}
+2024-09-30T12:15:27.185+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:15:27.187+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:15:27.188+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [org.springframework.boot.actuate.health.SystemHealth@496f7e87]
+2024-09-30T12:15:27.194+05:30 DEBUG 16296 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:15:47.637+05:30  INFO 16296 --- [productapp] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-30T12:15:47.790+05:30  INFO 16296 --- [productapp] [Thread-12] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:47.790+05:30  WARN 16296 --- [productapp] [Thread-12] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:15:47.791+05:30  INFO 16296 --- [productapp] [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-09-30T12:15:47.791+05:30  INFO 16296 --- [productapp] [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-09-30T12:15:47.878+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 16296 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:15:47.878+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:15:48.044+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:15:48.053+05:30  INFO 16296 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2024-09-30T12:15:48.154+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:15:48.155+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:15:48.155+05:30  INFO 16296 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:15:48.167+05:30  INFO 16296 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:15:48.167+05:30  INFO 16296 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 288 ms
+2024-09-30T12:15:48.201+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-09-30T12:15:48.205+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:15:48.206+05:30  INFO 16296 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-09-30T12:15:48.206+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:15:48.234+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:15:48.260+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:15:48.286+05:30  INFO 16296 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:48.381+05:30  WARN 16296 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:15:48.425+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:15:48.481+05:30 DEBUG 16296 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:15:48.502+05:30 DEBUG 16296 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:15:48.511+05:30 DEBUG 16296 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:15:48.692+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:15:48.699+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:15:48.727+05:30  INFO 16296 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:15:48.739+05:30  INFO 16296 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 0.875 seconds (process running for 96.034)
+2024-09-30T12:15:48.750+05:30  INFO 16296 --- [productapp] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   AvailabilityHealthContributorAutoConfiguration#livenessStateHealthIndicator matched:
+      - @ConditionalOnProperty (management.health.livenessstate.enabled=true) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (names: livenessStateHealthIndicator; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   AvailabilityHealthContributorAutoConfiguration#readinessStateHealthIndicator matched:
+      - @ConditionalOnProperty (management.health.readinessstate.enabled=true) matched (OnPropertyCondition)
+      - @ConditionalOnMissingBean (names: readinessStateHealthIndicator; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   AvailabilityProbesAutoConfiguration matched:
+      - Probes availability 'management.endpoint.health.probes.enabled' set to 'true' (AvailabilityProbesAutoConfiguration.ProbesCondition)
+
+
+Negative matches:
+-----------------
+
+   AvailabilityProbesAutoConfiguration#livenessStateHealthIndicator:
+      Did not match:
+         - @ConditionalOnMissingBean (names: livenessStateHealthIndicator; SearchStrategy: all) found beans named livenessStateHealthIndicator (OnBeanCondition)
+
+   AvailabilityProbesAutoConfiguration#readinessStateHealthIndicator:
+      Did not match:
+         - @ConditionalOnMissingBean (names: readinessStateHealthIndicator; SearchStrategy: all) found beans named readinessStateHealthIndicator (OnBeanCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-09-30T12:15:52.017+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(21)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T12:15:52.165+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(21)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:52.166+05:30  WARN 16296 --- [productapp] [RMI TCP Connection(21)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:15:52.166+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(21)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-09-30T12:15:52.167+05:30  INFO 16296 --- [productapp] [RMI TCP Connection(21)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-09-30T12:15:55.907+05:30  INFO 18272 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 18272 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:15:55.909+05:30  INFO 18272 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:15:55.961+05:30  INFO 18272 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T12:15:55.961+05:30  INFO 18272 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T12:15:56.772+05:30  INFO 18272 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:15:56.821+05:30  INFO 18272 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2024-09-30T12:15:57.440+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:15:57.450+05:30  INFO 18272 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:15:57.451+05:30  INFO 18272 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:15:57.487+05:30  INFO 18272 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:15:57.487+05:30  INFO 18272 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1525 ms
+2024-09-30T12:15:57.607+05:30  INFO 18272 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T12:15:57.778+05:30  INFO 18272 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:15:57.780+05:30  INFO 18272 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T12:15:57.792+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:15:57.880+05:30 DEBUG 18272 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:15:58.337+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:15:59.224+05:30  INFO 18272 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:15:59.675+05:30  WARN 18272 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:15:59.801+05:30 DEBUG 18272 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:15:59.945+05:30 DEBUG 18272 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:15:59.991+05:30 DEBUG 18272 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:16:00.034+05:30 DEBUG 18272 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:16:00.495+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:16:00.504+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:16:00.596+05:30  INFO 18272 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:16:00.609+05:30  INFO 18272 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 5.055 seconds (process running for 5.557)
+2024-09-30T12:16:01.338+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:16:01.338+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:16:01.338+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:16:01.338+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:16:01.338+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:16:01.339+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@79b841
+2024-09-30T12:16:01.339+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@483ed103
+2024-09-30T12:16:01.340+05:30 DEBUG 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:16:01.340+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-09-30T12:16:04.839+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/health", parameters={}
+2024-09-30T12:16:04.860+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:16:04.877+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:16:04.887+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [org.springframework.boot.actuate.health.SystemHealth@7819b617]
+2024-09-30T12:16:04.905+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:16:19.031+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/productapp/actuator/health/liveness", parameters={}
+2024-09-30T12:16:19.035+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-09-30T12:16:19.037+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-09-30T12:16:19.040+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [org.springframework.boot.actuate.health.CompositeHealth@2675cdb6]
+2024-09-30T12:16:19.042+05:30 DEBUG 18272 --- [productapp] [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:16:32.760+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T12:16:33.346+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:16:33.356+05:30  WARN 18272 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:16:33.359+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-30T12:16:33.366+05:30  INFO 18272 --- [productapp] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-30T12:23:58.528+05:30  INFO 11928 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Starting ProductappApplication using Java 17.0.10 with PID 11928 (C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2\target\classes started by busyc in C:\ora_web_service_25sept_to_3oct\code\session-4\productapp2)
+2024-09-30T12:23:58.530+05:30  INFO 11928 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-09-30T12:23:58.574+05:30  INFO 11928 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T12:23:58.574+05:30  INFO 11928 --- [productapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T12:23:59.368+05:30  INFO 11928 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T12:23:59.412+05:30  INFO 11928 --- [productapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2024-09-30T12:24:00.010+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-09-30T12:24:00.020+05:30  INFO 11928 --- [productapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T12:24:00.020+05:30  INFO 11928 --- [productapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30T12:24:00.064+05:30  INFO 11928 --- [productapp] [restartedMain] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring embedded WebApplicationContext
+2024-09-30T12:24:00.065+05:30  INFO 11928 --- [productapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1490 ms
+2024-09-30T12:24:00.179+05:30  INFO 11928 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T12:24:00.330+05:30  INFO 11928 --- [productapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-30T12:24:00.331+05:30  INFO 11928 --- [productapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T12:24:00.345+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-30T12:24:00.428+05:30 DEBUG 11928 --- [productapp] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-09-30T12:24:00.825+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T12:24:01.610+05:30  INFO 11928 --- [productapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:24:01.976+05:30  WARN 11928 --- [productapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T12:24:02.088+05:30 DEBUG 11928 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2024-09-30T12:24:02.193+05:30 DEBUG 11928 --- [productapp] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-09-30T12:24:02.230+05:30 DEBUG 11928 --- [productapp] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-30T12:24:02.267+05:30 DEBUG 11928 --- [productapp] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-30T12:24:02.674+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T12:24:02.682+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-09-30T12:24:02.788+05:30  INFO 11928 --- [productapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/productapp'
+2024-09-30T12:24:02.800+05:30  INFO 11928 --- [productapp] [restartedMain] com.productapp.ProductappApplication     : Started ProductappApplication in 4.617 seconds (process running for 5.113)
+2024-09-30T12:24:04.670+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productapp]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30T12:24:04.670+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-30T12:24:04.670+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-09-30T12:24:04.670+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-09-30T12:24:04.671+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-09-30T12:24:04.672+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5e51ab2e
+2024-09-30T12:24:04.673+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5a00f31a
+2024-09-30T12:24:04.673+05:30 DEBUG 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-30T12:24:04.674+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-09-30T12:24:07.487+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products", parameters={}
+2024-09-30T12:24:07.504+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getAll()
+2024-09-30T12:24:07.661+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-30T12:24:07.666+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Product(id=1, name=Thinkpad laptop, price=120000.00), Product(id=2, name=laptop mouse, price=300.00 (truncated)...]
+2024-09-30T12:24:07.700+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:31:49.530+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products/1", parameters={}
+2024-09-30T12:31:49.535+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getById(int)
+2024-09-30T12:31:49.585+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2024-09-30T12:31:49.585+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=1, name=Thinkpad laptop, price=120000.00)]
+2024-09-30T12:31:49.587+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:32:50.363+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products/1", parameters={}
+2024-09-30T12:32:50.364+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getById(int)
+2024-09-30T12:32:50.366+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2024-09-30T12:32:50.367+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=1, name=Thinkpad laptop, price=120000.00)]
+2024-09-30T12:32:50.368+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:41:13.239+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products/1", parameters={}
+2024-09-30T12:41:13.240+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getById(int)
+2024-09-30T12:41:13.242+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2024-09-30T12:41:13.243+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=1, name=Thinkpad laptop, price=120000.00)]
+2024-09-30T12:41:13.244+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:41:15.991+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products/1", parameters={}
+2024-09-30T12:41:15.993+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getById(int)
+2024-09-30T12:41:15.999+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-30T12:41:15.999+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=1, name=Thinkpad laptop, price=120000.00)]
+2024-09-30T12:41:16.001+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:43:01.182+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products", parameters={}
+2024-09-30T12:43:01.184+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getAll()
+2024-09-30T12:43:01.190+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-30T12:43:01.191+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Product(id=1, name=Thinkpad laptop, price=120000.00), Product(id=2, name=laptop mouse, price=300.00 (truncated)...]
+2024-09-30T12:43:01.192+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:43:10.307+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/productapp/products/1", parameters={}
+2024-09-30T12:43:10.310+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.productapp.controller.ProductController#getById(int)
+2024-09-30T12:43:10.313+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-30T12:43:10.314+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Product(id=1, name=Thinkpad laptop, price=120000.00)]
+2024-09-30T12:43:10.316+05:30 DEBUG 11928 --- [productapp] [http-nio-8090-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-09-30T12:44:34.263+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(32)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-09-30T12:44:34.882+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(32)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T12:44:34.891+05:30  WARN 11928 --- [productapp] [RMI TCP Connection(32)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-09-30T12:44:34.894+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(32)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-30T12:44:34.901+05:30  INFO 11928 --- [productapp] [RMI TCP Connection(32)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

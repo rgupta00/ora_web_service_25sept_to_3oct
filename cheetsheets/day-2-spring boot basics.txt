@@ -92,4 +92,12 @@
 	
 	
 	
+	web-----------service -------------- repo
 	
+	SRP
+	
+										Entity (object that talk to the db)
+										
+										Account
+										
+				AccountDto						

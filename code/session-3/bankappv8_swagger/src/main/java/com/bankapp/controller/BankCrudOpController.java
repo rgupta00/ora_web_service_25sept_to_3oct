@@ -17,6 +17,11 @@ import com.bankapp.dto.UpdateDto;
 import com.bankapp.repo.Account;
 import com.bankapp.service.AccountService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 
 @RestController
@@ -43,6 +48,14 @@ public class BankCrudOpController {
 	}
 	
 	//get account by id
+//	 @Operation(
+//		      summary = "Retrieve a Account by Id",
+//		      description = "Get a Account object by specifying its id. The response is Account object with id, title, description and published status.",
+//		      tags = { "Account", "get" })
+//		  @ApiResponses({
+//		      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Account.class), mediaType = "application/json") }),
+//		      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+//		      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
 	@GetMapping(path="accounts/{id}")
 	public ResponseEntity<Account> getAnAccountById(@PathVariable int id){
 		return ResponseEntity.status(HttpStatus.OK).body(accountService.getById(id));

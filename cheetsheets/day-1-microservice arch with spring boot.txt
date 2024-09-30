@@ -1,6 +1,5 @@
-
 Workshop web service with Spring boot
----------------------------------------
+--------------------------------------
 Agenda:
 --------
 	Session 1:
@@ -20,7 +19,6 @@ Agenda:
             ▪ An introduction to the REST architectural style
             ▪ Controlling HTTP response codes with @ResponseStatus
             ▪ Implementing REST with Spring MVC, @RequestMapping, @RequestBody and @ResponseBody
-            ▪ Spring MVC’s HttpMessageConverters and automatic content negotiation
             ▪ Exception handling with Spring Boot REST
             ▪ Open API documentation with Spring Boot
             ▪ Validation with Spring boot
@@ -98,6 +96,26 @@ Session 6:
 			
 fundamentals:
 -------------
+web service ?
+-------------
+
+SW installation issues:
+------------------------
+	fix the setup for this training
+	
+	Java 17 (LTS): 
+			java 8, java 11, java 17, java 21
+	
+		done
+		
+	Maven 3.9
+		done
+
+	sts 4.x
+
+
+
+
 	J2EE (group of specification for creating dynamic and dist web application)
 	1997
 		servlet jsp ejb jms
