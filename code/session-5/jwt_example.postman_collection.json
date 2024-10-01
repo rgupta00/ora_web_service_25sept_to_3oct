@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "19f40926-c0e0-467c-8ab0-2cf438918f6c",
+		"name": "jwt_example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1432109"
+	},
+	"item": [
+		{
+			"name": "get a jwt token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"raj\",\r\n    \"password\":\"raj123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "get data for user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWoiLCJpYXQiOjE3Mjc3NzA4NzIsImV4cCI6MTcyNzc3MjY3Mn0.2cQ7GV9t5mEcvEtUCFMVDYE1h60DbfvTL7mYRR4jx74",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"raj\",\r\n    \"password\":\"raj123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/admin"
+			},
+			"response": []
+		}
+	]
+}
