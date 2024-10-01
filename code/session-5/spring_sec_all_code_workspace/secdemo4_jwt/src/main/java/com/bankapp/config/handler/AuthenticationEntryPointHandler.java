@@ -1,4 +1,4 @@
-package com.bankapp.config;
+package com.bankapp.config.handler;
 
 import java.io.IOException;
 
@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 @Service
-public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
+public class AuthenticationEntryPointHandler implements AuthenticationEntryPoint{
 
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,

@@ -1,7 +1,6 @@
 package com.bankapp.config;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -12,7 +11,6 @@ import com.bankapp.repo.UserEntity;
 public class SecUser implements UserDetails {
 
 	private UserEntity userEntity;
-	
 	
 	public SecUser(UserEntity userEntity) {
 		this.userEntity = userEntity;

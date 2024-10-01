@@ -3,9 +3,11 @@ package com.bankapp.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,7 +15,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,51 +22,61 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecConfig {
-	
+
+	@Autowired
+	private AuthenticationEntryPoint authenticationEntryPoint;
 	
 	@Autowired
 	private AccessDeniedHandler accessDeniedHandler;
 	
 	@Autowired
-	private AuthenticationEntryPoint authenticationEntryPoint;
+	private JwtAuthFilter authFilter;
 	
 	@Autowired
-	UserDetailsService userDetailsService;
+	private UserDetailsService detailsService;
 	
+	// authentication
 	@Bean
-	 AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
-		DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
-
-		authenticationProvider.setUserDetailsService(userDetailsService);
-		authenticationProvider.setPasswordEncoder(passwordEncoder);
-		return authenticationProvider;
+	AuthenticationProvider authenticationProvider(PasswordEncoder encoder) {
+		DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
+		provider.setUserDetailsService(detailsService);
+		provider.setPasswordEncoder(encoder);
+		return provider;
 	}
 
-	
-	
 	@Bean
-	PasswordEncoder encoder() {
+	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	//Authrization
+
+	// authrorization
+	//authenticate
 	@Bean
-	SecurityFilterChain chain(HttpSecurity httpSecurity) throws Exception {
-		return httpSecurity
-		.csrf(AbstractHttpConfigurer::disable)
-		.cors(AbstractHttpConfigurer::disable)
-		.authorizeHttpRequests(registry-> registry.anyRequest().authenticated())
-//		.httpBasic(Customizer.withDefaults())
-		.httpBasic(hbc ->hbc.authenticationEntryPoint(authenticationEntryPoint) )
-		.exceptionHandling(hbc-> hbc.accessDeniedHandler(accessDeniedHandler))
-		.sessionManagement(configure-> configure.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-		.build();
-		
-		
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		return http.csrf(AbstractHttpConfigurer::disable)
+				.cors(AbstractHttpConfigurer::disable)
+				.authorizeHttpRequests(registry ->registry
+						.requestMatchers("authenticate").permitAll()
+						.anyRequest().authenticated())
+				.httpBasic(hbc ->hbc.authenticationEntryPoint(authenticationEntryPoint))
+				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
+				.exceptionHandling(hbc-> hbc.accessDeniedHandler(accessDeniedHandler))
+				.sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
+						.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+				.build();
 	}
+	//I want spring to give me AM
+	@Bean
+	 AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) 
+			 throws Exception {
+		return configuration.getAuthenticationManager();
+	}
+
 }

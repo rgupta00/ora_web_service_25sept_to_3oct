@@ -23,11 +23,16 @@ public class DbInit implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		entityService.addUserEntity(new UserEntity("raj",
-				passwordEncoder.encode("raj123"), List.of("ROLE_MGR","ROLE_ADMIN")));
+				passwordEncoder.encode("raj123"), 
+					List.of("ROLE_MGR","ROLE_ADMIN")));
 		
 		entityService.addUserEntity(new UserEntity("ekta",
-				passwordEncoder.encode("ekta123"), List.of("ROLE_MGR")));
+				passwordEncoder.encode("ekta123"), 
+				List.of("ROLE_MGR")));
 		
+		System.out.println(entityService.findByUsername("raj"));
+
+		System.out.println(entityService.findByUsername("ekta"));
 	}
 
 }

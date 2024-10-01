@@ -1,4 +1,4 @@
-package com.bankapp.config;
+package com.bankapp.config.handler;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -34,4 +34,3 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 	}
 
 }
-
