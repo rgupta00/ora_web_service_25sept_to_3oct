@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+	<employee>
+		<id>1</id>
+		<name>raja</name>
+		<location>delhi</location>
+		<salary>34000</salary>
+	</employee>
+		<employee>
+		<id>1</id>
+		<name>raja</name>
+		<location>delhi</location>
+		<salary>34000</salary>
+	</employee>
+		<employee>
+		<id>1</id>
+		<name>raja</name>
+		<location>delhi</location>
+		<salary>34000</salary>
+	</employee>
+</employees>

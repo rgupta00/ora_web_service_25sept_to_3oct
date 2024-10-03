@@ -293,6 +293,11 @@ what is microservice?
 	rabbitmq or kafka
 	
 	
+	design pattern:
+		gof design pattern
+	microserivce
+		design pattern applied to ms 
+	
 
 Spring security with database:
 -----------------------

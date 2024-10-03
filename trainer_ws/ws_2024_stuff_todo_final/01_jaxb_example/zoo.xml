@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:zoo xmlns:ns2="http://raj.com/jaxb">
+    <zooName>National park</zooName>
+    <zooId>11</zooId>
+    <animals>
+        <animal>
+            <animalName>tiger</animalName>
+            <animalType>non veg</animalType>
+        </animal>
+        <animal>
+            <animalName>deer</animalName>
+            <animalType>veg</animalType>
+        </animal>
+    </animals>
+</ns2:zoo>

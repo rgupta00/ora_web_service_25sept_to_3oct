@@ -1,0 +1,835 @@
+Agenda Sesison 6:
+===================
+
+api world :
+	appplication programmer interface
+	app1----------------------app2
+	
+	REST 
+	SOAP based web service
+	GraphQL
+	grpc
+	
+SOAP web service?
+-------------------
+	what is ws?
+		peice of code that run on remote machine ( server)
+		that can be access using xml or interoperatable way
+		
+		
+		app1 (java) ------------------------------ app2(python)
+		oracle										ibm
+		
+		RMI X (both party must be java basesd)
+		.net remoting
+		
+		
+		java-> xml ---------------network--------xml--python
+		app1 (java) ------------------------------ app2(python)
+		oracle										ibm
+		
+SOAP is based on few protocols:
+----------------------------
+SOAP: Simple Object access protocol
+WSDL: Web service description langugage
+UDDI: Uniform Description and Discovery Integration
+	
+	how web service works?
+	how web service use above protocol?
+	
+	
+	
+	
+1. Hello world SOAP Web service JAX WS
+	understanding important annotations
+	understanding wsdl file
+	
+2. Hello world soap ws @ spring boot + apache cfx, SOAP UI
+3. WSDL first example  @ spring boot + apache cfx, SOAP UI
+4. Introducton to ws standards
+5. SOAP security basics
+6. SOAP with MTOM
+
+
+
+SOAP web service with JAX-WS
+______________________________
+
+What is SOAP
+---------------
+	SOAP stands for Simple Object Access Protocol,
+	it's a transport protocol based on XML and HTTP. 
+	It sends and receives requests and responses.
+
+What is WSDL
+---------
+	WSDL or Web Services Description Language is
+	an XML notation for describing a web service.
+
+What is JaxWS
+-------------
+	JaxWS stands for Java API for XML Web Services. 
+	It builds web services and clients that communicate using XML.
+
+What is SoapUI
+-----------------
+	SoapUI is an API Testing Tool, 
+	it is used for RESTful Web Services or
+	 HTTP based services as well as SOAP Web Services.
+
+SOAP std
+----------
+WSDL= Web Services Definition Language
+SOAP= Simple Object Access Protocol (XML protocol)
+UDDI = Universal Description, Discovery, and Integration
+
+MTOM = Message Transmission Optimization Mechanism
+WCF= Windows Communication Foundation
+
+
+
+Intrduction to JAX-WS Overview
+___________________________
+
+	=> JAX-WS is a JEE specification for building message oriented /RPC oriented web services
+
+	=> Minimum coding , JAX-WS API hides the complexity form developer
+
+	=> JAX-WS 2.0 supports the Web Services Interoperability (WS-I) Basic Profile Version 1.1 
+
+	=> JAX-WS is also one of the foundations of web service interoperability Technologies (WSIT). 
+
+	=> RI of JAX-WS project Metro that also include Tango which handles the WSIT
+
+	=> Java Version 6 onwards JAX-WS can be used in Java SE 
+	
+	
+Approaches for WS Development
+________________________
+
+	1. bottom-up approach
+	____________________
+		Bottom-up approach: Start with Java Classes
+
+	2. top-down approach
+	 ______________________
+		Top-down approach: Start with WSDL
+
+
+1. Hello World SOAP ws 
+(Bottom-up approach: Start with Java Classes)
+______________________________________________
+
+
+	1. Create an Maven project with depdenency
+	
+	<properties>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-ri</artifactId>
+			<version>4.0.0</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+	
+	
+	2.Creating Web Service Endpoint
+	com.demo
+
+	@WebService
+	public class Calculator {
+		@WebMethod
+		public int sum(int param1, int param2) {
+			return param1 + param2;
+		}
+	}
+
+
+	 Endpoint.publish("http://localhost:8080/hello-ws/CalculatorService", new Calculator());
+
+
+	http://localhost:8080/hello-ws/CalculatorService?wsdl
+
+
+	2. Testing WS with SOAP UI
+
+
+
+
+Hello World SOAP ws : Annotations:
+==================================
+
+Example:
+------------
+
+@WebService(name="MyCalService" , portName="CalPort", targetNamespace="com.raj")
+@SOAPBinding(style=Style.DOCUMENT, use=Use.LITERAL, parameterStyle=ParameterStyle.WRAPPED)
+public class Calculator {
+	@WebMethod(operationName="sumOp", action="sumAction")
+	@WebResult(name="sum")
+	public int sum(@WebParam(name="p1") int param1,@WebParam(name="p2")  int param2) {
+		return param1 + param2;
+	}
+}
+
+
+	Now using @WebService annotation:
+	______________________________
+	
+	@WebService:  should be placed on an interface and implementation class
+	_________________________________________________________________________
+
+	name==> name of web service mapped to the name attribute of the wsdl:portType
+
+	serviceName==>actual name of published service, mapped to name wsdl:service 
+		element in WSDL document
+			(Default value is name of SEI implementation class)
+
+	targetNamespace==> Secifies the target namespace under which the service is defined.
+		(Default value is package name)
+
+ 	wsdlLocation==>  Specifies the URI at which the services WSDL contract is stored. 
+			(Default value is the URI at which the service is deployed)
+
+
+
+
+  	endpointInterface==>  Specifies the full name of the SEI that the 
+				implementation class implements
+				(This attribute is used in implementation class)
+
+	
+	portName=> The name of the endpoint at which the service is published and 
+		is mapped to the name attribute of the wsdl:port element 
+		in WSDL contract document
+		(Default value is the append Port to the name of the
+			 services implementation class.
+			This is used in implementation class).
+
+
+
+
+
+	More Annotations,Create an web service:
+	_______________________________________
+
+
+	@WebService(serviceName = "CalculatorWS")
+	public class Calculator {
+		@WebMethod
+		public int sum(@WebParam (name= "value1") int value1, 
+			@WebParam( name="value2" ) int value2) {
+			return value1 + value2;
+		}
+	}
+
+
+
+	Another example:
+	________________
+
+
+@WebService(name = "calapp", serviceName = "myCalService", 
+	portName = "myCalAppPort", targetNamespace = "https://www.busycoder.in/")
+public class CalculatorImpl{
+	
+	@WebResult(name = "addResult")
+	@WebMethod(operationName = "addMethod")
+	public int add(
+			@WebParam(name = "x", targetNamespace = "https://www.busycoder.in/") int a,
+			@WebParam(name = "y") int b){
+		return a+b;
+	}
+	
+	@WebResult(name = "multiplyResult")
+	@WebMethod(operationName = "multiplyMethod")
+	public int multiply(
+			@WebParam(name = "x", targetNamespace = "https://www.busycoder.in/") int a,
+			@WebParam(name = "y") int b){
+		return a*b;
+	}
+}
+
+
+
+
+
+
+	Another example:
+	________________
+
+
+	@WebService(name="ShoppingCartCatalog" , portName="ShoppingCartPort",
+ 	serviceName="ShoppingCartService", targetNamespace="http://www.shoppingcart.com")
+
+	public class ProductCatalog {
+
+	@WebMethod(action="getShoppingCartCategories", operationName="getShoppingCartCategoriesOperation")
+		public List<String> getProductCategories(){
+			List<String>list=new ArrayList<>();
+			list.add("laptop");
+			list.add("books");
+			list.add("games");
+			return list;
+		}
+	}
+
+
+
+
+
+
+
+	Using Interface: design to interface , Server side SEI
+	________________________________________________________
+
+
+	@WebService
+	public interface ProductCalegoriesInterface {
+		public abstract List<Product> getProductCategories();
+
+	}
+
+
+
+	@WebService(endpointInterface="com.shoppingcart.model.ProductCalegoriesInterface")
+	public class ProductCalegoriesInterfaceImpl implements ProductCalegoriesInterface{
+	
+		@WebResult(name="products")
+		@Override
+		public List<Product> getProductCategories() {
+			List<Product>list=new ArrayList<>();
+			list.add(new Product("121", "TV", 5555.7));
+			list.add(new Product("21", "Laptop", 25555.7));
+			list.add(new Product("121", "Mouse", 5.6));
+			return list;
+		}
+	
+	}
+
+
+
+	Using JAXB annotations	xml <--> java
+	_______________________________________
+
+
+	Create an POJO with annotations:
+
+
+	@XmlRootElement(namespace="https://www.busycoder.in/")
+	@XmlType(propOrder={"id","name","price"})
+	@XmlAccessorType(XmlAccessType.FIELD)
+	
+	public class Product {
+		@XmlElement(name="p_name", nillable=false, required=true)
+		private String name;
+		@XmlElement(name="p_id", nillable=false, required=true)
+		private String id;
+		@XmlElement(name="p_price", nillable=false, required=true)
+		private double price;
+
+
+
+
+	//Dont forget to have default ctr in POJO class...
+	Create an web service:
+
+
+	@WebService
+	public class ProductCatalog {
+
+		@WebMethod
+		@WebResult(name="Product")
+		public List<Product> getProductCategories(){
+			List<Product>list=new ArrayList<>();
+			list.add(new Product("121", "TV", 5555.7));
+			list.add(new Product("21", "Laptop", 25555.7));
+			list.add(new Product("121", "Mouse", 5.6));
+			return list;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	Handling faults
+	________________
+
+	Create User defind exception:
+
+	public class InvalidInputException extends Exception {
+
+		private static final long serialVersionUID = 1L;
+		private String errorDetails;
+
+		public InvalidInputException(String reason, String errorDetails) {
+			super(reason);
+			this.errorDetails=errorDetails;
+		
+		}
+		public String getFaultInfo(){
+			return errorDetails;
+		}
+	
+	}
+
+
+
+	Creating Web service:
+
+
+	@WebService
+	public class ShopInfo {
+
+		@WebMethod
+		@WebResult(name = "shopOutput")
+		public String getShopInfo(@WebParam(partName = "shopInput") String property)
+				throws InvalidInputException {
+			String response = null;
+			if ("shopName".equals(property))
+				response = "Mega Mart";
+			else if ("since".equals(property))
+				response = "2001";
+			else
+				throw new InvalidInputException("invalid input", property
+					+ " not found!");
+			return response;
+		}
+	}
+
+
+
+
+
+2. Hello world soap ws @ spring boot + apache cfx, SOAP UI
+____________________________________________________________
+
+ What is apache cfx?
+------------------
+	various frameworks:
+	Apache cfx, apache axis, Metro, various custom impl by weblogic websph etc, WCF
+
+
+ Why apache cfx?
+ ==============
+	=> Impl both JAX RS and JAX WS
+
+	=> provide various tool to create soap ws ( impl jax rs and jax ws)
+
+	=> comes with soap engine
+		serialize and de-serialize soap req/resp
+		publish dispaches to request to appropriate endpoint
+	=> Imp all WS* std: WS security, WS-Policy etc
+
+	=> tools : wsdl2java, java2wsdl tools as ant/ maven plugins
+
+	=> uses spring to configure ws
+
+	=> Extend and customize : interceptors and handlers
+
+	=> Doc and samples
+
+
+
+ Hello world soap ws @ spring boot + apache cfx, SOAP UI
+ ----------------------------------------------------------
+
+ 1. create spring boot project with apache cfx dependency:
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+
+ 2. hello world ws:
+
+	@WebService
+	public class Calculator {
+		@WebMethod
+		public int sum(int param1, int param2) {
+			return param1 + param2;
+		}
+	}
+
+
+ 3. conf apache cfx:
+
+
+import jakarta.xml.ws.Endpoint;
+import org.apache.cxf.Bus;
+import org.apache.cxf.jaxws.EndpointImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ConfigWs {
+
+	@Autowired
+	private Bus bus;
+	
+	@Bean
+	public Endpoint endPoint() {
+		EndpointImpl ePImpl= new EndpointImpl(bus, new Calculator());
+		ePImpl.publish("/cal");
+		return ePImpl;
+
+	}
+}
+
+
+server.servlet.context-path=/wsdlfirstws
+cxf.path=/service
+
+http://localhost:8080/wsdlfirstws/service/cal?wsdl
+
+
+
+
+3. WSDL first example  @ spring boot + apache cfx, SOAP UI
+=============================================================
+ 0. create spring boot project with
+	<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		
+		
+ 1. start with CustomerOrders.wsdl put in resources/wsdl/
+
+ 2. add cxf-codegen-plugin
+
+		<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>4.0.0</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/CustomerOrders.wsdl</wsdl>
+									<wsdlLocation>classpath:wsdl/CustomerOrders.wsdl</wsdlLocation>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+ 3. configure apache cfx
+ 
+@Configuration
+public class ConfigWs {
+
+	@Autowired
+	private Bus bus;
+
+	@Bean
+	public Endpoint endPoint() {
+		EndpointImpl ePImpl= new EndpointImpl(bus, new CustomerOrderImpl());
+		ePImpl.publish("/customerorderservice");
+		return ePImpl;
+
+	}
+}
+
+
+
+ 4. Impl ws
+
+@Features(features = "org.apache.cxf.feature.LoggingFeature")
+public class CustomerOrderImpl implements CustomerOrdersPortType {
+	Map<BigInteger, List<Order>> customerOrders = new HashMap<>();
+	int currentId;
+
+	public CustomerOrderImpl() {
+		init();
+	}
+
+	public void init() {
+		List<Order> orders = new ArrayList<>();
+		Order order = new Order();
+		order.setId(BigInteger.valueOf(1));
+
+		Product product = new Product();
+		product.setId("1");
+		product.setDescription("IPhone");
+		product.setQuantity(BigInteger.valueOf(3));
+		order.getProduct().add(product);
+
+		orders.add(order);
+
+		customerOrders.put(BigInteger.valueOf(++currentId), orders);
+
+	}
+
+	@Override
+	public GetOrdersResponse getOrders(GetOrdersRequest request) {
+		BigInteger customerId = request.getCustomerId();
+		List<Order> orders = customerOrders.get(customerId);
+
+		GetOrdersResponse response = new GetOrdersResponse();
+		response.getOrder().addAll(orders);
+
+		return response;
+	}
+
+	@Override
+	public CreateOrdersResponse createOrders(CreateOrdersRequest request) {
+		BigInteger customerId = request.getCustomerId();
+		Order order = request.getOrder();
+		List<Order> orders = customerOrders.get(customerId);
+		orders.add(order);
+
+		CreateOrdersResponse response = new CreateOrdersResponse();
+		response.setResult(true);
+
+		return response;
+	}
+}
+
+
+
+server.servlet.context-path=/demo
+cxf.path=/service
+
+
+ 5. testing soap ui
+
+
+
+
+https://cxf.apache.org/
+
+4. Introducton to ws standards
+===============================
+			|------ Security
+			|------ addressing
+	ws standards====
+			|-------MTOM
+			|--------Encoding/Dec
+			|-----	ect	
+
+
+5. SOAP security basics
+=========================
+ steps 1: add dependencies
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+
+
+ steps 2: configure WSS4J interceptors
+
+	
+	@Configuration
+	public class ConfigWs {
+	
+		@Autowired
+		private Bus bus;
+	
+		@Bean
+		public Endpoint endPoint() {
+			EndpointImpl ePImpl= new EndpointImpl(bus, new CustomerOrderImpl());
+			ePImpl.publish("/customerorderservice");
+			
+			Map<String, Object> inProps = new HashMap<>();
+			inProps.put(ConfigurationConstants.ACTION, ConfigurationConstants.USERNAME_TOKEN);
+			inProps.put(ConfigurationConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+			inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
+			
+			WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);
+			ePImpl.getInInterceptors().add(wssIn);
+			
+			return ePImpl;
+	
+		}
+	}
+ steps 3: Create callback
+
+    public class UTPasswordCallback implements CallbackHandler {
+
+	Map<String, String> passwords = new HashMap<>();
+
+	public UTPasswordCallback() {
+		passwords.put("raj", "raj");
+		passwords.put("soap", "soap");
+	}
+
+	@Override
+	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+
+		for (Callback callback : callbacks) {
+			WSPasswordCallback passwordCallBack = (WSPasswordCallback) callback;
+			String password = passwords.get(passwordCallBack.getIdentifier());
+			if (password != null) {
+				passwordCallBack.setPassword(password);
+				return;
+			}
+		}
+
+	}
+
+   }
+
+ steps 4: run and test
+
+
+  <soapenv:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+  <wsse:UsernameToken xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <wsse:Username xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">raj</wsse:Username>
+  <wsse:Password xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">raj</wsse:Password>
+  </wsse:UsernameToken>
+  </wsse:Security>
+   </soapenv:Header>
+
+
+
+6. SOAP with MTOM
+========================
+
+Message Transmission Optimization Mechanism (MTOM) is a 
+standard that allows users to send binary data in SOAP messages as raw bytes. 
+This is done by optimizing the transmission of the message, 
+which can result in smaller messages
+
+ MTOM: used for exchange the files bw servers
+ Message transmission Opt mech used to compress the files better then soap with attachement
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+
+
+ step 1: use a data type DataHander ie used to automatically read incoming file from i/p stream
+ step 2: enable mtom enable to true
+
+ upload/download file
+
+
+server.servlet.context-path=/mtom
+cxf.path=/
+
+
+
+
+import javax.xml.ws.Endpoint;
+import javax.xml.ws.soap.SOAPBinding;
+
+import org.apache.cxf.Bus;
+import org.apache.cxf.jaxws.EndpointImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class WebServiceConfig {
+
+	@Autowired
+	private Bus bus;
+
+	@Bean
+	public Endpoint endpoint() {
+		EndpointImpl endpoint = new EndpointImpl(bus, new FileWsImpl());
+		endpoint.publish("/fileWs");
+
+		SOAPBinding binding = (SOAPBinding) endpoint.getBinding();
+		binding.setMTOMEnabled(true);
+		return endpoint;
+
+	}
+
+}
+
+
+
+@WebService
+public interface FileWs {
+	void upload(@WebParam(name = "file") DataHandler attachment);
+	DataHandler download();
+}
+
+
+
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+
+public class FileWsImpl implements FileWs {
+
+	@Override
+	public void upload(DataHandler attachment) {
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		try {
+			 inputStream = attachment.getInputStream();
+			 outputStream = new FileOutputStream(new File("/home/raj/exp/test.jpg"));
+			byte[] b = new byte[100000];
+			int bytesRead = 0;
+
+			while ((bytesRead = inputStream.read(b)) != -1) {
+				outputStream.write(b, 0, bytesRead);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				inputStream.close();
+				outputStream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	@Override
+	public DataHandler download() {
+		return new DataHandler(new FileDataSource(new File("/home/raj/exp/test.jpg")));
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
